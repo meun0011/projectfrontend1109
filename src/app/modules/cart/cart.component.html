@@ -1,0 +1,118 @@
+<div class="container h-100 py-5">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col">
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col" class="h5">Shopping Bag</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of productList">
+              <th scope="row">
+                <div class="d-flex align-items-center">
+                  <img *ngIf="product.imgList.length > 0" [src]="product.imgList[0]" class="img-fluid rounded-3" style="width: 120px;" alt="Book">
+                  <div class="flex-column ms-4">
+                    <p class="mb-2">{{product.productName}}</p>
+                    <p class="mb-0">{{product.productDesc}}</p>
+                  </div>
+                </div>
+              </th>
+              <td class="align-middle">
+                <div class="d-flex flex-row">
+                  <div class="d-flex align-items-center mb-3">
+                    <button class="btn btn-link px-2" data-mdb-ripple-init (click)="decrementQuantity(product)"><i class="fas fa-minus"></i></button>
+                    <input class="form-control form-control-sm" style="width: 50px;" min="0" name="quantity" [(ngModel)]="product.quantity" type="number" value="1">
+                    <button type="button" class="btn btn-link px-2" data-mdb-ripple-init (click)="incrementQuantity(product)"><i class="fas fa-plus"></i></button>
+                  </div>
+                </div>
+              </td>
+              <td class="align-middle">
+                <p class="mb-0" style="font-weight: 500;">{{product.price | currency: "฿"}}</p>
+              </td>
+              <td><a (click)="removeItem(product)" class="float-end text-black"><i class="fas fa-times"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
+        <div class="card-body p-4">
+
+          <div class="row">
+            <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="d-flex justify-content-end">
+              <div class="col-md-6 col-lg-4 col-xl-6">
+                <div class="row">
+                  <div class="col-12 col-xl-6">
+                    <div data-mdb-input-init class="form-outline mb-4 mb-xl-">
+                      <input type="text" class="form-control form-control-lg" size="17" placeholder="ชื่อ" formControlName="name" />
+                      <label class="form-label" for="typeName">ชื่อ</label>
+                    </div>
+                  </div>
+                  <div class="col-12 col-xl-6">
+                    <div data-mdb-input-init class="form-outline mb-4 mb-xl-3">
+                      <input type="text" class="form-control form-control-lg" size="17" placeholder="เบอร์โทร" minlength="19" maxlength="19" formControlName="phone" />
+                      <label class="form-label" for="typeText">เบอร์โทร</label>
+                    </div>
+                  </div>
+                  <div class="mb-3 mt-3 mb-xl-5">
+                    <label for="comment">ที่อยู่:</label>
+                    <textarea class="form-control" formControlName="shippingAddress" name="shippingAddress" required rows="3" placeholder="ที่อยู่"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
+                <div class="d-flex flex-row pb-3">
+                  <div class="d-flex align-items-center pe-2">
+                  
+                  </div>
+               
+                </div>
+                <div class="d-flex flex-row pb-3">
+                  <div class="d-flex align-items-center pe-2">
+                   
+                  </div>
+                
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="d-flex align-items-center pe-2">
+                  
+                  </div>
+             
+                </div>
+              </div>
+              <div class="col-lg-4 col-xl-3">
+                <div class="d-flex justify-content-between" style="font-weight: 500;">
+                  <p class="mb-2">ราคารวม</p>
+                  <p class="mb-2">{{ grandTotal | currency: "฿" }}</p>
+                </div>
+                <!-- <div class="d-flex justify-content-between" style="font-weight: 500;">
+                  <p class="mb-0">Shipping</p>
+                  <p class="mb-0">$2.99</p>
+                </div> -->
+                <hr class="my-4">
+                <!-- <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                  <p class="mb-2">Total (tax included)</p>
+                  <p class="mb-2">$26.48</p>
+                </div> -->
+                <button  type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block btn-lg">
+                  <div class="d-flex justify-content-between">
+                    <span>ยืนยันการสั่งซื้อ</span>
+                    <span>{{ grandTotal | currency: "฿" }}</span>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

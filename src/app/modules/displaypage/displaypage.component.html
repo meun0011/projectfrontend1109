@@ -1,0 +1,70 @@
+<section class="section-content padding-y bg">
+  <div class="container">
+    <article class="card">
+      <div class="card-body">
+        <div class="row">
+          <aside class="col-md-6">
+            <article *ngFor="let product of productList" class="gallery-wrap">
+              <div class="card img-big-wrap">
+                <div class="product-image-container">
+                  <img
+                    *ngIf="product.imgList.length > 0"
+                    [src]="product.imgList[0]"
+                    class="product-image"
+                    alt="Product Image"
+                  />
+                </div>
+              </div>
+            </article>
+          </aside>
+
+          <main *ngFor="let product of productList" class="col-md-6">
+            <article>
+              <h3 class="title product-title">{{ product.productName }}</h3>
+              <div class="rating-section">
+                <ul class="rating-stars">
+                  <li class="stars-active">
+                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </li>
+                </ul>
+                <span class="label-rating text-muted">7/10</span>
+              </div>
+              <hr>
+              <div class="form-group">
+                <p class="text-muted product-desc">{{ product.productDesc }}</p>
+                <div class="size-options">
+                  <label class="js-check btn btn-check active mr-1">
+                    <input type="radio" name="option_size" value="option1" checked="">
+                    <span>Small</span>
+                  </label>
+                  <label class="js-check btn btn-check mr-1">
+                    <input type="radio" name="option_size" value="option1">
+                    <span>Medium</span>
+                  </label>
+                  <label class="js-check btn btn-check mr-1">
+                    <input type="radio" name="option_size" value="option1">
+                    <span>Large</span>
+                  </label>
+                  <label class="js-check btn btn-check disabled">
+                    <input type="radio" name="option_size" disabled="" value="option1">
+                    <span>Babies</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mb-1">
+                <var class="price h4 product-price">
+                  Price: {{ product.price }} THB
+                </var>
+              </div>
+              <div class="button-group mb-4">
+                <button type="button" class="btn btn-primary btn-lg" (click)="addtoCart(product)">เพิ่มสินค้า</button>
+                <a href="/dashbord-admin" class="btn btn-success btn-lg ms-2">ย้อนกลับ</a>
+              </div>
+            </article>
+          </main>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

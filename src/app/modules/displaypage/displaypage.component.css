@@ -1,0 +1,58 @@
+/* ปรับแต่งการแสดงผลของชื่อสินค้า */
+.product-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+  cursor: default; /* ปรับเคอร์เซอร์ให้เป็นค่าเริ่มต้น */
+}
+
+/* ปรับแต่งการแสดงผลของรายละเอียดสินค้า */
+.product-desc {
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+  text-align: center;
+  cursor: default; /* ปรับเคอร์เซอร์ให้เป็นค่าเริ่มต้น */
+}
+
+/* ปรับแต่งการแสดงผลของราคา */
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff5722;
+  text-align: center;
+  display: block; /* ทำให้ var กลายเป็นบล็อคเพื่อจัดตำแหน่งให้ตรงกลาง */
+  width: 100%; /* ทำให้มีความกว้างเต็มที่ */
+  padding-top: 10px;
+  padding-bottom: 20px;
+  cursor: default; /* ปรับเคอร์เซอร์ให้เป็นค่าเริ่มต้น */
+}
+
+/* ปรับแต่งการแสดงผลของกลุ่มปุ่ม */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ปรับแต่งการแสดงผลของส่วนการให้คะแนน */
+.rating-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: default; /* ปรับเคอร์เซอร์ให้เป็นค่าเริ่มต้น */
+}
+
+/* ปรับแต่งคอนเทนเนอร์ให้ภาพอยู่กลาง */
+.product-image-container {
+  width: 100%;
+  text-align: center; /* จัดภาพให้อยู่กลาง */
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

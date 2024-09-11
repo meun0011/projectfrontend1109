@@ -1,0 +1,44 @@
+<header class="p-3 btn-secondary text-white">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <!-- <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a> -->
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li *ngIf="null == userDetail"><a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="nav-link px-2 text-white">หน้าหลัก</a></li>
+        <li *ngIf="null != userDetail"><a [routerLink]="['/dashbord-admin']" routerLinkActive="router-link-active"  class="nav-link px-2 text-white">หน้าหลัก</a></li>
+        <li *ngIf="null != userDetail"><a [routerLink]="['/profile']" routerLinkActive="router-link-active"  class="nav-link px-2 text-white">โปรไฟล์</a></li>
+
+        <li *ngIf="null != userDetail && userDetail.roleId == 2"><a [routerLink]="['/userpage']" routerLinkActive="router-link-active"  class="nav-link px-2 text-white">คำสั่งซื้อ</a></li>
+        <li *ngIf="null != userDetail && userDetail.roleId == 1"><a [routerLink]="['/getalloder']" routerLinkActive="router-link-active"  class="nav-link px-2 text-white">คำสั่งซื้อทั้งหมด</a></li>
+        <li *ngIf="null != userDetail && userDetail.roleId == 1"><a [routerLink]="['/manage-user']" routerLinkActive="router-link-active"  class="nav-link px-2 text-white">จัดการลูกค้า</a></li>
+        <li *ngIf="null != userDetail && userDetail.roleId == 1"><a [routerLink]="['/manage-product']" class="nav-link px-2 text-white">จัดการสินค้า</a></li>
+        <!-- <li *ngIf="null != userDetail && userDetail.roleId == 1"><a href="#" class="nav-link px-2 text-white" [routerLink]="['/report']">รายงาน</a></li> -->
+      </ul>
+      <!-- <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <div class="element" *ngIf="userDetail && totalItem > 0" style="line-height: 4;">
+          <button class="btn btn-outline-white position-relative" [routerLink]="['/cart']" routerLinkActive="router-link-active">
+            <i style="font-size: 23px;" class="fas fa-cart-plus text-white"></i>
+            <div class="badge bg-danger position-absolute top-0 end-0">{{ totalItem }}</div>
+          </button>
+        </div>
+        </ul> -->
+      <div class="text-end" *ngIf="null == userDetail">
+      
+        <button type="button" class="btn btn-outline-light me-2" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</button>
+        <button type="button" class="btn btn-warning" [routerLink]="['/register']" routerLinkActive="router-link-active" >Sign-up</button>
+      </div>
+      <div class="text-end d-flex align-items-center" *ngIf="null != userDetail">
+        <button  [routerLink]="['/cart']" routerLinkActive="router-link-active" class="border rounded py-1 px-3 nav-link d-flex align-items-center btn-outline-light text-white me-2 mb-3" target="_blank">
+          <i class="fas fa-shopping-cart m-1 me-md-2"></i>
+          <p class="d-none d-md-block mb-0">My cart</p>
+          <div style="font-size: 9px" class="badge bg-gradient-warning ms-1">
+            {{ totalItem }}
+          </div>
+        </button>
+        <button type="button" class="btn btn-outline-light me-2" (click)="logout()" >logOut</button>
+      </div>
+    </div>
+  </div>
+</header>

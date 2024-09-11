@@ -1,0 +1,45 @@
+
+
+
+<div class="container mt-3">
+  <div class="row">
+    <ng-container *ngFor="let product of productList">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-2 mb-4" >
+        <div class="card" style="width: 200px; height:380px">
+          <a (click)="setSeleted(product)">
+          <img *ngIf="product.imgList.length > 0" [src]="product.imgList[0]" style="height:170px; width:200px;" class="card-img-top" alt="Product Image"></a>
+          <div class="card-body">
+            <h5 class="card-title">{{ product.productName }}</h5>
+            <!-- <p class="card-text">{{ product.productDesc }}</p> -->
+            <p class="card-text">{{ product.price }}</p>
+            <button type="button" class="btn btn-primary" (click)="addtoCart(product)">เพิ่มสินค้า</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<!-- 
+  <div class="container mt-3">
+    <div class="row">
+  <ng-container *ngFor="let product of productList">
+  <div class="card col-2 md-4" style="width:200px" >
+    <img *ngIf="product.imgList.length >0" [src]="product.imgList[0]" class="card-img-bottom" alt="user1">
+    <div class="card-body">
+      <h4 class="card-title">{{product.productName}}</h4>
+      <p class="card-text">{{product.productDesc}}</p>
+      <p class="card-text">{{product.price}}</p>
+
+      <button  class="btn btn-primary" (click)="addToCart(product)">เพิ่มสินค้า</button>
+    </div>
+  </div>
+  <br>
+</ng-container>
+
+</div>
+</div> -->
+
+
+
+
